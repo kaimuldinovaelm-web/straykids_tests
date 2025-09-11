@@ -1,0 +1,19 @@
+- list:
+  - listitem:
+    - link "PROFILE":
+      - /url: /Default/Profile
+  - listitem:
+    - link "DISCOGRAPHY":
+      - /url: /Default/DiscographyList
+  - listitem:
+    - link "GALLERY":
+      - /url: /Default/Gallery
+  - listitem:
+    - link "VIDEO":
+      - /url: /Default/Video
+  - listitem:
+    - link "NOTICE":
+      - /url: /Default/NoticeList
+  - listitem:
+    - link "SCHEDULE":
+      - /url: /Default/Schedule

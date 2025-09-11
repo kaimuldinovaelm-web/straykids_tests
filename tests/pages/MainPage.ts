@@ -6,12 +6,13 @@ export class MainPage extends BasePage {
   private readonly newAlbumBlockLocator: Locator;
   private readonly videoLocator: Locator;
   private readonly videoPlayerLocator: Locator;
+  private readonly closeVideoPlayerLocator: Locator;
   private readonly mainlogoLocator: Locator;
   private readonly burgerMenuLocator: Locator;
-  private readonly mainAlbumNameLocator: Locator;
+  private readonly burgerMenuPopUp: Locator;
   private readonly noticeAllMemberListLocator: Locator;
   private readonly socailMediaLinksLocator: Locator;
-  private readonly burgerMenuPopUp: Locator;
+  private readonly copyRightLocator: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -23,15 +24,16 @@ export class MainPage extends BasePage {
       .locator('iframe[name="fancybox-frame1757574260195"]')
       .contentFrame()
       .locator('video');
+    this.closeVideoPlayerLocator = this.page.getByRole('button', { name: 'Close' });
     this.mainlogoLocator = this.page.locator('#header').getByRole('link', { name: '로고' });
     this.burgerMenuLocator = this.page.getByRole('button', { name: '메뉴' });
-    this.mainAlbumNameLocator = this.page.locator('.main_album_name wow fadeInRight');
+    this.burgerMenuPopUp = this.page.locator('.gnb_list');
     this.noticeAllMemberListLocator = this.page.locator('.main_n_tt');
     this.socailMediaLinksLocator = this.page.locator('.sns');
-    this.burgerMenuPopUp = this.page.locator('.gnb_list');
+    this.copyRightLocator = this.page.locator('#footer').getByText('Copyright © JYP ENTERTAINMENT');
   }
   async open() {
-    this.page.goto('https://straykids.jype.com/');
+    await this.page.goto('https://straykids.jype.com/', { waitUntil: 'load' });
   }
   async headerHasCorrectAreaSnapshot() {
     await expect(this.headerLocator).toMatchAriaSnapshot({ name: 'headerAreaSnapshot.yml' });
@@ -54,14 +56,14 @@ export class MainPage extends BasePage {
   async burgerMenuOpen() {
     await this.burgerMenuLocator.click(); //Проверка попапа при нажатии на бургер меню
   }
-  async mainAlbumPage() {
-    await this.mainAlbumNameLocator.click(); //Проверка перехода на страницу альбома
-  }
   async noticeAllMembers() {
     await this.noticeAllMemberListLocator.click(); //Переход на страницу со списком мемберов
   }
   async openVideoPlayerWindow() {
     await this.videoLocator.click();
+  }
+  async closeVideoPlayerWindow() {
+    await this.closeVideoPlayerLocator.click();
   }
   //Проверки соответствий попапов и всплывающих окон снэпшотам
   async burgerMenuAreaSnapshot() {
@@ -72,6 +74,17 @@ export class MainPage extends BasePage {
   async videoPlayerWindowSnapshot() {
     await expect(this.videoPlayerLocator).toMatchAriaSnapshot({
       name: 'videoPlayerWindowSnapshot.yml',
+    });
+  }
+  //Проверка наличия на странице ссылок на соцсети и авторские права
+  async socialMediaSnapshot() {
+    await expect(this.socailMediaLinksLocator).toMatchAriaSnapshot({
+      name: 'socialMediaSnapshot.yml',
+    });
+  }
+  async copyRightSnapshot() {
+    await expect(this.copyRightLocator).toMatchAriaSnapshot({
+      name: 'copyRightSnapshot.yml',
     });
   }
 }

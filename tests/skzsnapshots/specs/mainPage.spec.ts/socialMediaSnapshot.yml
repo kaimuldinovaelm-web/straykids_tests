@@ -1,0 +1,25 @@
+- list:
+  - listitem:
+    - link "INSTAR":
+      - /url: https://www.instagram.com/realstraykids
+      - img "INSTAR"
+  - listitem:
+    - link "TWITER":
+      - /url: https://twitter.com/Stray_Kids
+      - img "TWITER"
+  - listitem:
+    - link "FACEBOOK":
+      - /url: https://web.facebook.com/JYPEStrayKids
+      - img "FACEBOOK"
+  - listitem:
+    - link "YOUTUBE":
+      - /url: https://www.youtube.com/c/StrayKids
+      - img "YOUTUBE"
+  - listitem:
+    - link "FANS":
+      - /url: https://app.fans/community/StrayKids/artist
+      - img "FANS"
+  - listitem:
+    - link "SHOP":
+      - /url: https://app.fans/shop/StrayKids
+      - img "SHOP"
