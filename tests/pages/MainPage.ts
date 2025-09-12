@@ -36,9 +36,6 @@ export class MainPage extends BasePage {
     await this.page.goto('https://straykids.jype.com/', { waitUntil: 'load' });
   }
 
-  async videoHasCorrectAreaSnapshot() {
-    await expect(this.videoLocator).toMatchAriaSnapshot({ name: 'videoSnapshot.yml' });
-  }
   //actions
   async mainLogoClick() {
     await this.mainlogoLocator.click(); //Проверка перехода на главную страницу при нажатии на Лого
@@ -70,12 +67,15 @@ export class MainPage extends BasePage {
     await this.checkAreaSnapshot(this.copyRightLocator, 'copyRightSnapshot.yml');
   }
   async headerHasCorrectAreaSnapshot() {
-    await this.checkAreaSnapshot(this.headerLocator, 'cheaderAreaSnapshot.yml');
+    await this.checkAreaSnapshot(this.headerLocator, 'headerAreaSnapshot.yml');
   }
   async footerHasCorrectAreaSnapshot() {
     await this.checkAreaSnapshot(this.footerLocator, 'footerAreaSnapshot.yml');
   }
   async mainAlbumHasCorrectAreaSnapshot() {
-    await this.checkAreaSnapshot(this.newAlbumBlockLocator, 'ewAlbumAreaSnapshot.yml');
+    await this.checkAreaSnapshot(this.newAlbumBlockLocator, 'newAlbumAreaSnapshot.yml');
+  }
+  async videoHasCorrectAreaSnapshot() {
+    await expect(this.videoLocator).toMatchAriaSnapshot({ name: 'videoSnapshot.yml' });
   }
 }

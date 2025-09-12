@@ -9,4 +9,7 @@ export class BasePage {
       name: areaName,
     });
   }
+  protected async checkLayoutByScreenshot(locator: Locator, screenshotName: string) {
+    await expect(locator).toHaveScreenshot(screenshotName);
+  }
 }
