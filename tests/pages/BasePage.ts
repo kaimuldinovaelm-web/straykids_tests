@@ -12,4 +12,9 @@ export class BasePage {
   protected async checkLayoutByScreenshot(locator: Locator, screenshotName: string) {
     await expect(locator).toHaveScreenshot(screenshotName);
   }
+  protected async checkMembersProfilesScreenshot(locator: Locator, screenshotName: string) {
+    await expect(locator).toMatchAriaSnapshot({
+      name: screenshotName,
+    });
+  }
 }
