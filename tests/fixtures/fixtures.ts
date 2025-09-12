@@ -13,6 +13,7 @@ export const test = base.extend<MyFixtures>({
     await use(mainPage);
   },
   discographyPage: async ({ page }, use) => {
+    //добавление повторяющихся шагов в фикстуры
     const discographyPage = new DiscographyPage(page);
     await discographyPage.open();
     await use(discographyPage);
