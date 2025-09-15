@@ -52,7 +52,7 @@ export class ProfilesPage extends BasePage {
   }
   //assertions
   async bangChanScreenshot() {
-    await this.checkMembersProfilesScreenshot(this.bangChanPageLocator, 'BanChan.yml');
+    await this.checkMembersProfilesScreenshot(this.bangChanPageLocator, 'BangChan.yml');
   }
   async leeKnowScreenshot() {
     await this.checkMembersProfilesScreenshot(this.leeKnowPageLocator, 'LeeKnow.yml');

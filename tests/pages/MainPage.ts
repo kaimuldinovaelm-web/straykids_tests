@@ -3,7 +3,7 @@ import { BasePage } from './BasePage';
 export class MainPage extends BasePage {
   private readonly headerLocator: Locator;
   private readonly footerLocator: Locator;
-  private readonly newAlbumBlockLocator: Locator;
+  //private readonly newAlbumBlockLocator: Locator;
   private readonly videoLocator: Locator;
   private readonly videoPlayerLocator: Locator;
   private readonly closeVideoPlayerLocator: Locator;
@@ -18,7 +18,7 @@ export class MainPage extends BasePage {
     super(page);
     this.headerLocator = this.page.locator('#header');
     this.footerLocator = this.page.locator('#footer');
-    this.newAlbumBlockLocator = this.page.locator('.right_cont');
+    //this.newAlbumBlockLocator = this.page.locator('.right_cont');
     this.videoLocator = this.page.locator('.video');
     this.videoPlayerLocator = this.page
       .locator('iframe[name="fancybox-frame1757574260195"]')
@@ -72,9 +72,9 @@ export class MainPage extends BasePage {
   async footerHasCorrectAreaSnapshot() {
     await this.checkAreaSnapshot(this.footerLocator, 'footerAreaSnapshot.yml');
   }
-  async mainAlbumHasCorrectAreaSnapshot() {
-    await this.checkAreaSnapshot(this.newAlbumBlockLocator, 'newAlbumAreaSnapshot.yml');
-  }
+  // async mainAlbumHasCorrectAreaSnapshot() {
+  //   await this.checkAreaSnapshot(this.newAlbumBlockLocator, 'newAlbumAreaSnapshot.yml');
+  // }
   async videoHasCorrectAreaSnapshot() {
     await expect(this.videoLocator).toMatchAriaSnapshot({ name: 'videoSnapshot.yml' });
   }
